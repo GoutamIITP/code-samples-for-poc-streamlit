@@ -2,14 +2,15 @@ import streamlit as st
 import openai
 import requests
 import json
+from video_stt import *
 
-def main():
+def main(endpoint_url: str = "https://internshala.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-08-01-preview", api_key: str = "") -> None:
     st.title("Azure OpenAI GPT-4o Connectivity Test") 
     
     # Azure OpenAI connection details
     # Here, we define the API key and endpoint URL for connecting to Azure OpenAI.
-    azure_openai_key = "<API_KEY>"  # Replace with your actual key. if you don't have one, get from Azure or from Community https://curious.pm
-    azure_openai_endpoint = "<ENDPOINT_URL>"  # Replace with your actual endpoint URL
+    azure_openai_key = api_key  # Replace with your actual key. if you don't have one, get from Azure or from Community https://curious.pm
+    azure_openai_endpoint = endpoint_url  # Replace with your actual endpoint URL
     
     # Button to initiate the connection and request
     # User clicks this button to initiate the request to Azure OpenAI.
@@ -54,4 +55,4 @@ def main():
             st.warning("Please enter all the required details.")
 
 if __name__ == "__main__":
-    main()
+    main(api_key="22ec84421ec24230a3638d1b51e3a7dc")
